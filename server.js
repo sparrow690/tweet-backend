@@ -1,9 +1,12 @@
 import express from 'express';
 import data from './data.js';
+import dotenv from 'dotenv';
 
 
-const Port = 3000
 
+dotenv.config();
+
+const {port} = process.env
 const app = express();
 let mesTweets = [...data.tweets]
 
@@ -29,5 +32,5 @@ app.get('/user', (req, res) => {
     res.send(data["current-user"]);
 })
 
- app.listen(Port);
+ app.listen(port);
 

@@ -1,6 +1,7 @@
 import express from 'express';
 import data from './data.js';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 
 
@@ -8,6 +9,8 @@ dotenv.config();
 
 const {port} = process.env
 const app = express();
+
+app.use(cors());
 let mesTweets = [...data.tweets]
 
 app.use(express.json());
